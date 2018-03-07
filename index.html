@@ -29,11 +29,11 @@
                 }
 
             }
-            $("input:not(.own)").attr("pattern", function () {
+            $("#practice-table input:not(.own)").attr("pattern", function () {
                 return $(this).parent().prev().children().text();
             });
 
-            $("input:not(#own-pattern)").on({
+            $("#practice-table input:not(#own-pattern)").on({
                 "keyup": check
             });
 
@@ -59,7 +59,7 @@
         <div class="row">
             <div class="col-sm-8">
                 <h3>Practice</h3>
-                <table class="table">
+                <table class="table" id="practice-table">
                     <tr>
                         <th>pattern attribute</th>
                         <th>Type your text</th>
@@ -315,7 +315,21 @@
                     </tr>
 
                 </table>
-
+                <h3>Excercises</h3>
+                <table class="table" id="excercises-table">
+                    <tr>
+                        <th>pattern attribute</th>
+                        <th>Target String</th>
+                        <th>Task</th>
+                        <th>Check</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
             </div>
             <div class="col-sm-4">
                 <h3>Lesson Note</h3>
