@@ -22,9 +22,9 @@
 
             var check = function () {
                 if (this.checkValidity()) {
-                    $(this).parent().next().html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
+                    $(this).parent().next().html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').css("color", "blue");
                 } else {
-                    $(this).parent().next().html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>');
+                    $(this).parent().next().html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
 
                 }
 
@@ -37,14 +37,16 @@
                 "keyup": check
             });
 
-            $("#own-pattern").keyup(function() {
+            $("#own-pattern").keyup(function () {
                 var checker = $("#own-pattern-checker");
                 checker.attr({
-                    "pattern" : $(this).val()
+                    "pattern": $(this).val()
                 });
 
                 checker.keyup();
             });
+
+            $(".hide").hide();
         });
 
     </script>
@@ -75,157 +77,243 @@
                     </tr>
                     <tr>
                         <td>
-                            <code>a</code>
-                        </td>
+                            <code>a</code> </td>
                         <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
                     </tr>
                     <tr>
                         <td>
-                            <code>abc</code>
-                        </td>
+                            <code>abc</code> </td>
                         <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
                     </tr>
                     <tr>
                         <td>
-                            <code>1</code>
-                        </td>
+                            <code>1</code> </td>
                         <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
                     </tr>
                     <tr>
                         <td>
-                            <code>123</code>
-                        </td>
+                            <code>123</code> </td>
                         <td>
-                            <input type="text" name="" id="" required>
-                        </td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
                         <td>
-                        </td>
+                            <code>\d</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\D</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>.</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\.</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>[abc]</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>[^abc]</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>[a-z]</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>[a-zA-Z]</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>[0-9]</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>[a-zA-Z0-9]</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\w</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\W</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\d{3}</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\w{3}</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\d{3,5}</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\d{3,}</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>o*</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>o+</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>o?</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>do*g</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>do+g</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>do?g</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\s</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\S</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\s+</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>\S+</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>^d</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>g$</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>^d.*g$</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>(dog|cat)</code> </td>
+                        <td>
+                            <input type="text" name="" id="" required> </td>
+                        <td> </td>
                     </tr>
 
-                    <tr>
-                        <td>
-                            <code>\d</code>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <code>\D</code>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <code>.</code>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <code>\.</code>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <code>[abc]</code>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <code>[^abc]</code>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <code>[a-z]</code>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <code>[0-9]</code>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <code>\w</code>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <code>\W</code>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" required>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-
-                    <tr>
-                            <td>
-                                <code>\d{3}</code>
-                            </td>
-                            <td>
-                                <input type="text" name="" id="" required>
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
                 </table>
 
             </div>
@@ -292,9 +380,22 @@
                     </tr>
                     <tr>
                         <td>
+                            <code>[a-zA-Z]</code>
+                        </td>
+                        <td>Characters a to z or A to Z</td>
+                    </tr>
+                    <tr>
+                        <td>
                             <code>[0-9]</code>
                         </td>
                         <td>Numbers 0 to 9</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <code>[a-zA-Z0-9]</code>
+                        </td>
+                        <td>Characters a to z or A to Z or 0 to 9</td>
                     </tr>
                     <tr>
                         <td>
@@ -319,6 +420,12 @@
                             <code>{m,n}</code>
                         </td>
                         <td>m to n Repetitions</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>{m,}</code>
+                        </td>
+                        <td>m or more Repetitions</td>
                     </tr>
                     <tr>
                         <td>
@@ -356,19 +463,19 @@
                         </td>
                         <td>Starts and ends</td>
                     </tr>
-                    <tr>
+                    <tr class="hide">
                         <td>
                             <code>(…)</code>
                         </td>
                         <td>Capture Group</td>
                     </tr>
-                    <tr>
+                    <tr class="hide">
                         <td>
                             <code>(a(bc))</code>
                         </td>
                         <td>Capture Sub-group</td>
                     </tr>
-                    <tr>
+                    <tr class="hide">
                         <td>
                             <code>(.*)</code>
                         </td>
