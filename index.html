@@ -11,7 +11,7 @@
 
     <style>
         body {
-            margin-top: 20px;
+            margin-top: 10px;
         }
     </style>
 
@@ -29,11 +29,40 @@
                 }
 
             }
-            $("#practice-table input:not(.own)").attr("pattern", function () {
+            $(".pattern-checker:not('#own-pattern-checker')").attr("pattern", function () {
                 return $(this).parent().prev().children().text();
             });
 
-            $("#practice-table input:not(#own-pattern)").on({
+            $("#excercises-check-button1").on({
+                "click": function () {
+                    $(".excercises-pattern-checker[data-pattern='#excercises-pattern-input1']")
+                        .attr("pattern", $("#excercises-pattern-input1").val()).keyup();
+
+                }
+            });
+
+            $("#excercises-check-button2").on({
+                "click": function () {
+                    $(".excercises-pattern-checker[data-pattern='#excercises-pattern-input2']")
+                        .attr("pattern", $("#excercises-pattern-input2").val()).keyup();
+
+                }
+            });
+            $("#excercises-solution-button1").on({
+                "click": function () {
+                    $("#excercises-solution1").toggle();
+                }
+            })
+
+            $("#excercises-solution-button2").on({
+                "click": function () {
+                    $("#excercises-solution2").toggle();
+                }
+            })
+            $("#excercises-solution1, #excercises-solution2").toggle();
+            // $(".excercises-pattern-checker").attr
+
+            $(".pattern-checker, .excercises-pattern-checker").on({
                 "keyup": check
             });
 
@@ -61,16 +90,17 @@
                 <h3>Practice</h3>
                 <table class="table" id="practice-table">
                     <tr>
-                        <th>pattern attribute</th>
+                        <th>
+                            <code>pattern</code> attribute</th>
                         <th>Type your text</th>
                         <th>Check</th>
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" id="own-pattern" class="own" placeholder="Type your pattern attr">
+                            <input type="text" id="own-pattern" placeholder="Type your pattern attr">
                         </td>
                         <td>
-                            <input type="text" id="own-pattern-checker" placeholder="Type your text" class="own" name="" id="" required>
+                            <input type="text" id="own-pattern-checker" class="pattern-checker" placeholder="Type your text" name="" id="" required>
                         </td>
                         <td>
                         </td>
@@ -79,238 +109,238 @@
                         <td>
                             <code>a</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>abc</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>1</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>123</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\d</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\D</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>.</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\.</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>[abc]</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>[^abc]</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>[a-z]</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>[a-zA-Z]</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>[0-9]</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>[a-zA-Z0-9]</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\w</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\W</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\d{3}</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\w{3}</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\d{3,5}</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\d{3,}</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>o*</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>o+</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>o?</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>do*g</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>do+g</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>do?g</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\s</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\S</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\s+</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>\S+</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>^d</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>g$</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>^d.*g$</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <code>(dog|cat)</code> </td>
                         <td>
-                            <input type="text" name="" id="" required> </td>
+                            <input class="pattern-checker" type="text" name="" id="" required> </td>
                         <td> </td>
                     </tr>
 
@@ -318,22 +348,99 @@
                 <h3>Excercises</h3>
                 <table class="table" id="excercises-table">
                     <tr>
-                        <th>pattern attribute</th>
+                        <th>
+                            <code>pattern</code> attribute</th>
                         <th>Target String</th>
-                        <th>Task</th>
                         <th>Check</th>
                     </tr>
                     <tr>
+                        <td rowspan="5">
+                            <div class="form-group">
+                                <input class="form-control" id="excercises-pattern-input1" value="">
+                            </div>
+                            <button id="excercises-check-button1" class="btn btn-default btn-block">확인</button>
+                            <button class="btn btn-default btn-block" id="excercises-solution-button1">해답보기</button>
+                            <div id="excercises-solution1" class="well">
+                                <code>\d{2,3}-?\d{3,4}-?\d{4}</code>
+                            </div>
+                        </td>
+                        <td>
+                            <input data-pattern="#excercises-pattern-input1" class="form-control excercises-pattern-checker" type="text" required value="010-9999-9999">
+                        </td>
                         <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input data-pattern="#excercises-pattern-input1" class="form-control excercises-pattern-checker" type="text" required value="010-1234-5678">
+                        </td>
                         <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input data-pattern="#excercises-pattern-input1" class="form-control excercises-pattern-checker" type="text" required value="02-888-8888">
+                        </td>
                         <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input data-pattern="#excercises-pattern-input1" class="form-control excercises-pattern-checker" type="text" required value="031-1111-2222">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input data-pattern="#excercises-pattern-input1" class="form-control excercises-pattern-checker" type="text" required value="01022223333">
+                        </td>
+                        <td></td>
+                    </tr>
+
+
+                    <tr>
+                        <td rowspan="5">
+                            <div class="form-group">
+                                <input class="form-control" id="excercises-pattern-input2" value="">
+                            </div>
+                            <button id="excercises-check-button2" class="btn btn-default btn-block">확인</button>
+                            <button class="btn btn-default btn-block" id="excercises-solution-button2">해답보기</button>
+                            <div id="excercises-solution2" class="well">
+                                <code>\w+\.?\w+\+?\w+@\w+\.?\w+\.?\w+</code>
+                            </div>
+                        </td>
+                        <td>
+
+                            <input data-pattern="#excercises-pattern-input2" class="form-control excercises-pattern-checker" type="text" required value="tom@hogwarts.com">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input data-pattern="#excercises-pattern-input2" class="form-control excercises-pattern-checker" type="text" required value="tom.riddle@hogwarts.com">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input data-pattern="#excercises-pattern-input2" class="form-control excercises-pattern-checker" type="text" required value="tom@hogwarts.co.kr">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input data-pattern="#excercises-pattern-input2" class="form-control excercises-pattern-checker" type="text" required value="potter@hogwarts.com">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input data-pattern="#excercises-pattern-input2" class="form-control excercises-pattern-checker" type="text" required value="tom.riddle+regexone@hogwarts.com">
+                        </td>
                         <td></td>
                     </tr>
                 </table>
             </div>
             <div class="col-sm-4">
                 <h3>Lesson Note</h3>
-                <table class="table">
+                <table class="table" id="lesson-note-table">
                     <tr>
                         <th>Pattern</th>
                         <th>Description</th>
