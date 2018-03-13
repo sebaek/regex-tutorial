@@ -1,10 +1,16 @@
-Match 010-9999-9999
-Match 010-1234-5678
-Match 02-888-8888
-Match 031-1111-2222
-Match 01022223333
+<td><input type="text" required value="010-9999-9999" readonly></td>
+<td><input type="text" required value="010-1234-5678" readonly></td>
+<td><input type="text" required value="02-888-8888" readonly></td>
+<td><input type="text" required value="031-1111-2222" readonly></td>
+<td><input type="text" required value="01022223333" readonly></td>
 
 
 
+<input data-pattern="#excercises-pattern-input1" class="excercises-pattern-checker" type="text" required value="01022223333">
 
 
+<tr><td><input data-pattern="#excercises-pattern-input2" class="excercises-pattern-checker" type="text" required value="tom@hogwarts.com"></td><td></td></tr>
+<tr><td><input data-pattern="#excercises-pattern-input2" class="excercises-pattern-checker" type="text" required value="tom.riddle@hogwarts.com"></td><td></td></tr>
+<tr><td><input data-pattern="#excercises-pattern-input2" class="excercises-pattern-checker" type="text" required value="tom@hogwarts.co.kr"></td><td></td></tr>
+<tr><td><input data-pattern="#excercises-pattern-input2" class="excercises-pattern-checker" type="text" required value="potter@hogwarts.com"></td><td></td></tr>
+<tr><td><input data-pattern="#excercises-pattern-input2" class="excercises-pattern-checker" type="text" required value="tom.riddle+regexone@hogwarts.com"></td><td></td></tr>

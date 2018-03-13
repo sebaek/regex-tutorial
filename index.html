@@ -21,10 +21,17 @@
 
 
             var check = function () {
-                if (this.checkValidity()) {
-                    $(this).parent().next().html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').css("color", "blue");
-                } else {
-                    $(this).parent().next().html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
+                try {
+                    this.checkValidity();
+                    if (this.checkValidity()) {
+                        $(this).parent().next().html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').css("color", "blue");
+                    } else {
+                        $(this).parent().next().html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
+                    }
+
+                } catch (err) {
+                    console.log("err");
+                    // $(this).parent().next().html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
 
                 }
 
@@ -33,21 +40,51 @@
                 return $(this).parent().prev().children().text();
             });
 
-            $("#excercises-check-button1").on({
-                "click": function () {
+            $("#excercises-pattern-input1").keyup(function () {
+                console.log("keyup");
+                var reg = "";
+                var patternString = $(this).val();
+                try {
+                    var reg = new RegExp(patternString);
                     $(".excercises-pattern-checker[data-pattern='#excercises-pattern-input1']")
-                        .attr("pattern", $("#excercises-pattern-input1").val()).keyup();
+                        .attr("pattern", patternString).keyup();
 
+                } catch (err) {
+                    console.log("err");
+                    $(".excercises-pattern-result1").html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
                 }
             });
 
-            $("#excercises-check-button2").on({
-                "click": function () {
+            $("#excercises-pattern-input2").keyup(function () {
+                console.log("keyup");
+                var reg = "";
+                var patternString = $(this).val();
+                try {
+                    var reg = new RegExp(patternString);
                     $(".excercises-pattern-checker[data-pattern='#excercises-pattern-input2']")
-                        .attr("pattern", $("#excercises-pattern-input2").val()).keyup();
+                        .attr("pattern", patternString).keyup();
 
+                } catch (err) {
+                    console.log("err");
+                    $(".excercises-pattern-result2").html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
                 }
             });
+
+            // $("#excercises-check-button1").on({
+            //     "click": function () {
+            //         $(".excercises-pattern-checker[data-pattern='#excercises-pattern-input1']")
+            //             .attr("pattern", $("#excercises-pattern-input1").val()).keyup();
+
+            //     }
+            // });
+
+            // $("#excercises-check-button2").on({
+            //     "click": function () {
+            //         $(".excercises-pattern-checker[data-pattern='#excercises-pattern-input2']")
+            //             .attr("pattern", $("#excercises-pattern-input2").val()).keyup();
+
+            //     }
+            // });
             $("#excercises-solution-button1").on({
                 "click": function () {
                     $("#excercises-solution1").toggle();
@@ -67,12 +104,22 @@
             });
 
             $("#own-pattern").keyup(function () {
-                var checker = $("#own-pattern-checker");
-                checker.attr({
-                    "pattern": $(this).val()
-                });
+                var patternString = $(this).val();
+                var regex = "";
+                try {
+                    var regex = new RegExp(patternString);
+                    var checker = $("#own-pattern-checker");
+                    checker.attr({
+                        "pattern": patternString
+                    });
 
-                checker.keyup();
+                    checker.keyup();
+
+                } catch (err) {
+                    console.log("err regexp");
+                    $("#own-pattern-result").html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
+                }
+
             });
 
             $(".hide").hide();
@@ -102,7 +149,7 @@
                         <td>
                             <input type="text" id="own-pattern-checker" class="pattern-checker" placeholder="Type your text" name="" id="" required>
                         </td>
-                        <td>
+                        <td id="own-pattern-result">
                         </td>
                     </tr>
                     <tr>
@@ -358,7 +405,7 @@
                             <div class="form-group">
                                 <input class="form-control" id="excercises-pattern-input1" value="">
                             </div>
-                            <button id="excercises-check-button1" class="btn btn-default btn-block">확인</button>
+                            <button id="excercises-check-button1" class="btn btn-default btn-block hide">확인</button>
                             <button class="btn btn-default btn-block" id="excercises-solution-button1">해답보기</button>
                             <div id="excercises-solution1" class="well">
                                 <code>\d{2,3}-?\d{3,4}-?\d{4}</code>
@@ -367,31 +414,31 @@
                         <td>
                             <input data-pattern="#excercises-pattern-input1" class="form-control excercises-pattern-checker" type="text" required value="010-9999-9999">
                         </td>
-                        <td></td>
+                        <td class="excercises-pattern-result1"></td>
                     </tr>
                     <tr>
                         <td>
                             <input data-pattern="#excercises-pattern-input1" class="form-control excercises-pattern-checker" type="text" required value="010-1234-5678">
                         </td>
-                        <td></td>
+                        <td class="excercises-pattern-result1"></td>
                     </tr>
                     <tr>
                         <td>
                             <input data-pattern="#excercises-pattern-input1" class="form-control excercises-pattern-checker" type="text" required value="02-888-8888">
                         </td>
-                        <td></td>
+                        <td class="excercises-pattern-result1"></td>
                     </tr>
                     <tr>
                         <td>
                             <input data-pattern="#excercises-pattern-input1" class="form-control excercises-pattern-checker" type="text" required value="031-1111-2222">
                         </td>
-                        <td></td>
+                        <td class="excercises-pattern-result1"></td>
                     </tr>
                     <tr>
                         <td>
                             <input data-pattern="#excercises-pattern-input1" class="form-control excercises-pattern-checker" type="text" required value="01022223333">
                         </td>
-                        <td></td>
+                        <td class="excercises-pattern-result1"></td>
                     </tr>
 
 
@@ -400,7 +447,7 @@
                             <div class="form-group">
                                 <input class="form-control" id="excercises-pattern-input2" value="">
                             </div>
-                            <button id="excercises-check-button2" class="btn btn-default btn-block">확인</button>
+                            <button id="excercises-check-button2" class="btn btn-default btn-block hide">확인</button>
                             <button class="btn btn-default btn-block" id="excercises-solution-button2">해답보기</button>
                             <div id="excercises-solution2" class="well">
                                 <code>\w+\.?\w+\+?\w+@\w+\.?\w+\.?\w+</code>
@@ -410,31 +457,31 @@
 
                             <input data-pattern="#excercises-pattern-input2" class="form-control excercises-pattern-checker" type="text" required value="tom@hogwarts.com">
                         </td>
-                        <td></td>
+                        <td class="excercises-pattern-result2"></td>
                     </tr>
                     <tr>
                         <td>
                             <input data-pattern="#excercises-pattern-input2" class="form-control excercises-pattern-checker" type="text" required value="tom.riddle@hogwarts.com">
                         </td>
-                        <td></td>
+                        <td class="excercises-pattern-result2"></td>
                     </tr>
                     <tr>
                         <td>
                             <input data-pattern="#excercises-pattern-input2" class="form-control excercises-pattern-checker" type="text" required value="tom@hogwarts.co.kr">
                         </td>
-                        <td></td>
+                        <td class="excercises-pattern-result2"></td>
                     </tr>
                     <tr>
                         <td>
                             <input data-pattern="#excercises-pattern-input2" class="form-control excercises-pattern-checker" type="text" required value="potter@hogwarts.com">
                         </td>
-                        <td></td>
+                        <td class="excercises-pattern-result2"></td>
                     </tr>
                     <tr>
                         <td>
                             <input data-pattern="#excercises-pattern-input2" class="form-control excercises-pattern-checker" type="text" required value="tom.riddle+regexone@hogwarts.com">
                         </td>
-                        <td></td>
+                        <td class="excercises-pattern-result2"></td>
                     </tr>
                 </table>
             </div>
