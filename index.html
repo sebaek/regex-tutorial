@@ -21,19 +21,14 @@
 
 
             var check = function () {
-                try {
-                    this.checkValidity();
-                    if (this.checkValidity()) {
-                        $(this).parent().next().html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').css("color", "blue");
-                    } else {
-                        $(this).parent().next().html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
-                    }
-
-                } catch (err) {
-                    console.log("err");
-                    // $(this).parent().next().html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
-
+                this.checkValidity();
+                if (this.checkValidity()) {
+                    $(this).parent().next().html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').css("color", "blue");
+                } else {
+                    $(this).parent().next().html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
                 }
+
+
 
             }
             $(".pattern-checker:not('#own-pattern-checker')").attr("pattern", function () {
@@ -41,7 +36,6 @@
             });
 
             $("#excercises-pattern-input1").keyup(function () {
-                console.log("keyup");
                 var reg = "";
                 var patternString = $(this).val();
                 try {
@@ -50,13 +44,11 @@
                         .attr("pattern", patternString).keyup();
 
                 } catch (err) {
-                    console.log("err");
                     $(".excercises-pattern-result1").html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
                 }
             });
 
             $("#excercises-pattern-input2").keyup(function () {
-                console.log("keyup");
                 var reg = "";
                 var patternString = $(this).val();
                 try {
@@ -65,7 +57,6 @@
                         .attr("pattern", patternString).keyup();
 
                 } catch (err) {
-                    console.log("err");
                     $(".excercises-pattern-result2").html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
                 }
             });
@@ -116,7 +107,6 @@
                     checker.keyup();
 
                 } catch (err) {
-                    console.log("err regexp");
                     $("#own-pattern-result").html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>').css("color", "red");
                 }
 
